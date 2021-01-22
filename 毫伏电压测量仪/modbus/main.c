@@ -249,7 +249,9 @@ void main(void)	 {
 					}
 				}
 			}
+			sbufc =0;
 		}
+	
 //01  03  00 00  00 4 crcl crch		主机 读功能吗
 		
 error:				  
@@ -381,8 +383,6 @@ void UART1_config(u8 brt)	// UART1_config(u8 brt) 2: 使用Timer2做波特率, 其它值:
 //	PCON2 |=  (1<<4);	//内部短路RXD与TXD, 做中继, ENABLE,DISABLE
 	B_TX1_Busy = 0;		//	TX1_Cnt = 0;  	RX1_Cnt = 0;
 }
-
-
 
 ///***************************CRC校验码生成函数 ********************************/
 //////函数功能：生成CRC校验码

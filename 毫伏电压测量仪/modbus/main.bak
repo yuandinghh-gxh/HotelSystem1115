@@ -388,8 +388,7 @@ void UART1_config(u8 brt)	// UART1_config(u8 brt) 2: 使用Timer2做波特率, 其它值:
 //////函数功能：生成CRC校验码
 //////本代码中使用查表法，以提高运算速度
 ///****************************************************************************/
-uint16 crc16(uint8 *puchMsg, uint16 usDataLen) 
-{ 
+uint16 crc16(uint8 *puchMsg, uint16 usDataLen) 	{ 
  u8 uchCRCHi = 0xFF ; /* 高CRC字节初始化 */ 
  u8 uchCRCLo = 0xFF ; /* 低CRC 字节初始化 */ 
  u16 uIndex ; /* CRC循环中的索引 */ 
@@ -399,4 +398,5 @@ uint16 crc16(uint8 *puchMsg, uint16 usDataLen)
   uchCRCHi = uchCRCLo ^ auchCRCHi[uIndex] ; 
   uchCRCLo = auchCRCLo[uIndex] ; 
  } 
+ return (uchCRCLo << 8 | uchCRCHi) ; 
 }
