@@ -1,0 +1,477 @@
+C51 COMPILER V9.01   MAIN                                                                  07/21/2020 14:50:37 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil_v4\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*¶ÁADC²âÁ¿Íâ²¿µçÑ¹£¬Ê¹ÓÃÄÚ²¿»ù×¼¼ÆËãµçÑ¹.
+   2          ÓÃSTCµÄMCUµÄIO·½Ê½¿ØÖÆ74HC595Çý¶¯8Î»ÊýÂë¹Ü¡£
+   3          ÓÃ»§¿ÉÒÔÐÞ¸ÄºêÀ´Ñ¡ÔñÊ±ÖÓÆµÂÊ.
+   4          ÓÃ»§¿ÉÒÔÔÚ"ÓÃ»§¶¨Òåºê"ÖÐÑ¡Ôñ¹²Òõ»ò¹²Ñô. ÍÆ¼ö¾¡Á¿Ê¹ÓÃ¹²ÒõÊýÂë¹Ü.
+   5          Ê¹ÓÃTimer0µÄ16Î»×Ô¶¯ÖØ×°À´²úÉú1ms½ÚÅÄ,³ÌÐòÔËÐÐÓÚÕâ¸ö½ÚÅÄÏÂ, ÓÃ»§ÐÞ¸ÄMCUÖ÷Ê±ÖÓÆµÂÊÊ±,×Ô¶¯¶¨Ê±ÓÚ1ms.
+   6          ÓÒ±ß4Î»ÊýÂë¹ÜÏÔÊ¾²âÁ¿µÄµçÑ¹ÖµÖµ.
+   7          Íâ²¿µçÑ¹´Ó°åÉÏ²âÎÂµç×èÁ½¶ËÊäÈë, ÊäÈëµçÑ¹0~VDD, ²»Òª³¬¹ýVDD»òµÍÓÚ0V. 
+   8          Êµ¼ÊÏîÄ¿Ê¹ÓÃÇë´®Ò»¸ö1KµÄµç×èµ½ADCÊäÈë¿Ú, ADCÊäÈë¿ÚÔÙ²¢Ò»¸öµçÈÝµ½µØ.
+   9          ******************************************/
+  10          #define MAIN_Fosc               11059000L       //¶¨ÒåÖ÷Ê±ÖÓ
+  11          #include        "STC15Fxxxx.H"
+  12           
+  13          // #include <reg51.h>
+  14          
+  15          #define         Baudrate1                       115200L
+  16          #define         UART1_BUF_LENGTH        32
+  17          
+  18          #define  LED0 P12
+  19          #define  LED1 P13
+  20          
+  21          u8      TX1_Cnt;        //·¢ËÍ¼ÆÊý
+  22          u8      RX1_Cnt;        //½ÓÊÕ¼ÆÊý
+  23          
+  24          bit     B_TX1_Busy;     //·¢ËÍÃ¦±êÖ¾
+  25          
+  26          u8      idata RX1_Buffer[UART1_BUF_LENGTH];     //½ÓÊÕ»º³å
+  27          
+  28          void    UART1_config(u8 brt);   // Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: Ê¹ÓÃTimer1×ö²¨ÌØÂÊ.
+  29          void    PrintString1(u8 *puts);
+  30          
+  31          
+  32          void  delay_ms(u8 ms);
+  33          
+  34          /**************485*******************************/
+  35          #define DIS_DOT         0x20
+  36          #define DIS_BLACK       0x10
+  37          #define DIS_            0x11
+  38          
+  39          #define P1n_pure_input(bitn)            P1M1 |=  (bitn),        P1M0 &= ~(bitn)
+  40          
+  41          /****************************** ÓÃ»§¶¨Òåºê ***********************************/
+  42                  #define Cal_MODE        0       //Ã¿´Î²âÁ¿Ö»¶Á1´ÎADC. ·Ö±æÂÊ0.01V
+  43          //      #define Cal_MODE        1       //Ã¿´Î²âÁ¿Á¬Ðø¶Á16´ÎADC ÔÙÆ½¾ù¼ÆËã. ·Ö±æÂÊ0.01V
+  44          
+  45          #define         LED_TYPE        0x00            //¶¨ÒåLEDÀàÐÍ, 0x00--¹²Òõ, 0xff--¹²Ñô
+  46          #define Timer0_Reload   (65536UL -(MAIN_Fosc / 1000))           //Timer 0 ÖÐ¶ÏÆµÂÊ, 1000´Î/Ãë
+  47          /*************  ±¾µØ³£Á¿ÉùÃ÷    **************/
+  48          u8 code t_display[]={                                           //±ê×¼×Ö¿â
+  49          //       0    1    2    3    4    5    6    7    8    9    A    B    C    D    E    F
+  50                  0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F,0x77,0x7C,0x39,0x5E,0x79,0x71,
+  51          //black  -     H    J    K        L        N    o   P    U     t    G    Q    r   M    y
+  52                  0x00,0x40,0x76,0x1E,0x70,0x38,0x37,0x5C,0x73,0x3E,0x78,0x3d,0x67,0x50,0x37,0x6e,
+  53                  0xBF,0x86,0xDB,0xCF,0xE6,0xED,0xFD,0x87,0xFF,0xEF,0x46};        //0. 1. 2. 3. 4. 5. 6. 7. 8. 9. -1
+  54          u8 code T_COM[]={0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};              //Î»Âë
+  55          
+C51 COMPILER V9.01   MAIN                                                                  07/21/2020 14:50:37 PAGE 2   
+
+  56          /*************  IO¿Ú¶¨Òå        **************/
+  57          sbit    P_HC595_SER   = P4^0;   //pin 14        SER             data input
+  58          sbit    P_HC595_RCLK  = P5^4;   //pin 12        RCLk    store (latch) clock
+  59          sbit    P_HC595_SRCLK = P4^3;   //pin 11        SRCLK   Shift data clock
+  60          
+  61          /*************  ±¾µØ±äÁ¿ÉùÃ÷    **************/
+  62          static u8       str[8];         //ÏÔÊ¾»º³å
+  63          u8      display_index;  //ÏÔÊ¾Î»Ë÷Òý
+  64          bit     B_1ms;                  //1ms±êÖ¾
+  65          u16     msecond;
+  66          u16     Bandgap;        //
+  67          u16     Get_ADC10bitResult(u8 channel); //channel = 0~7
+  68          static  u8 crcok,getsubf = 0;  //¼ìÑé³ö´í
+  69          static u8 sec,sbufc,sbufb[5],crc,min10c,deltimesand,subfmin,beginget,min;   //  ms ÀÛ¼Ó,  sbufc,ÒÑ¾­½ÓÊÜ´®
+             -ÐÐ×Ö·ûÊý ,sbufb ½ÓÊÕ»º´æ
+  70          u8  data  timei ;       //ÁÙÊ±±äÁ¿
+  71          static u16   curv,ini;          //µ±Ç°µçÑ¹Öµ
+  72          u8  data  datas[6]      ; //×ª×Ö·û´®  »º´æ
+  73          
+  74          void InitUART(void)
+  75          {
+  76   1          TMOD = 0x20;
+  77   1          SCON = 0x50;
+  78   1          TH1 = 0xFA;
+  79   1          TL1 = TH1;
+  80   1          PCON = 0x80;
+  81   1          EA = 1;
+  82   1          ES = 1;
+  83   1          TR1 = 1;
+  84   1      }
+  85          
+  86          void SendOneByte(unsigned char c)
+  87          {
+  88   1          SBUF = c;
+  89   1          while(!TI);
+  90   1          TI = 0;
+  91   1      }
+  92          
+  93          
+  94          void sbufsend(u8 c) {    //´®ÐÐ¿Ú·¢ËÍÒ»¸ö×Ö·û
+  95   1              SBUF=c;                         //½«½ÓÊÕµ½µÄÊý¾Ý·ÅÈëµ½·¢ËÍ¼Ä´æÆ÷
+  96   1              while(!TI);                                              //µÈ´ý·¢ËÍÊý¾ÝÍê³É
+  97   1              TI=0;  
+  98   1                       delayms(1)     ;
+*** WARNING C206 IN LINE 98 OF MAIN.C: 'delayms': missing function-prototype
+*** ERROR C267 IN LINE 98 OF MAIN.C: 'delayms': requires ANSI-style prototype
+  99   1      }
+ 100          
+ 101          void sendv()  {  //·¢ËÍµ±Ç° µçÁ¿ÊýÖµ
+ 102   1              u8 crci = 0xAA;
+ 103   1              sbufsend(0xAA);
+ 104   1          sbufsend(0x15);
+ 105   1              crci = crci+ 0x15;
+ 106   1      
+ 107   1          sbufsend(curv);
+ 108   1              crci = crci+ curv;
+ 109   1          sbufsend(crci);
+ 110   1      }
+ 111          
+ 112          void sbufsendstr(char str[]) {  //·¢ËÍ×Ö·û´®
+ 113   1              u8 i;
+ 114   1              for(i=0;i<5;i++) {
+C51 COMPILER V9.01   MAIN                                                                  07/21/2020 14:50:37 PAGE 3   
+
+ 115   2                              if( str[i] != 0 ) { 
+ 116   3                                       sbufsend(str[i]); 
+ 117   3                       }
+ 118   2              } }
+ 119          
+ 120          
+ 121           /*   : void Timer0() interrupt 1   ¶¨Ê±Æ÷0ÖÐ¶Ïº¯Êý  **/
+ 122          void Timer0() interrupt 1       {
+ 123   1      //   TH0=0XFC;  //¸ø¶¨Ê±Æ÷¸³³õÖµ£¬¶¨Ê±1ms       TL0=0X18;
+ 124   1      //   TL0 = 0x66;
+ 125   1              TH0 = (u8)(Timer0_Reload / 256);
+ 126   1              TL0 = (u8)(Timer0_Reload % 256);
+ 127   1              min++;   ini++;
+ 128   1              B_1ms = 1;
+ 129   1          if(ini >= 1000)  {
+ 130   2                      subfmin++;
+ 131   2                      sec++ ;           //Ãë
+ 132   2              ini=0;
+ 133   2                      min10c=1;
+ 134   2                 LED1 = !LED1;
+ 135   2                      if (sec >=60 ) {
+ 136   3                              sec = 0;  //·¢ËÍÊ±¼ä Ò»·ÖÖÓ
+ 137   3                      }
+ 138   2           }
+ 139   1       //    if (min10 >= 10 ) {
+ 140   1      //       min10c++; min10 = 0;
+ 141   1      //    }                           
+ 142   1      }
+ 143          
+ 144          /* :  * º¯Êý¹¦ÄÜ  : ´®¿ÚÍ¨ÐÅÖÐ¶Ïº¯Êý  **/
+ 145          void Usart() interrupt 4
+ 146          {
+ 147   1      u8 s;
+ 148   1              s =     SBUF;
+ 149   1              if ( s == 0xAA )  {
+ 150   2                      beginget = 2;
+ 151   2                      sbufb[0]=s;//³öÈ¥½ÓÊÕµ½µÄÊý¾Ý
+ 152   2                      sbufc = 1; crc = 0xAA;
+ 153   2               }
+ 154   1               else { 
+ 155   2                      if ( sbufb[0]== 0xAA ) {
+ 156   3                              beginget--;
+ 157   3                              if (  beginget != 0)  {
+ 158   4                                      sbufb[sbufc] = s;                               
+ 159   4                                      sbufc++;
+ 160   4                                      crc = crc + s;
+ 161   4                              } else {
+ 162   4                                        crcok = 0; 
+ 163   4                                    if ( crc ==  s )  crcok = 1; 
+ 164   4                                        else          crcok = 0; 
+ 165   4                                getsubf=1; 
+ 166   4                      }
+ 167   3             }  
+ 168   2      //          else {
+ 169   2      //               getsubf=0; 
+ 170   2      //         }
+ 171   2               }
+ 172   1              RI = 0;//Çå³ý½ÓÊÕÖÐ¶Ï±êÖ¾»
+ 173   1      }
+ 174          
+ 175          
+ 176          void main(void)          {
+C51 COMPILER V9.01   MAIN                                                                  07/21/2020 14:50:37 PAGE 4   
+
+ 177   1              u8      i;
+ 178   1              u16     j;
+ 179   1      
+ 180   1              P0M1 = 0;       P0M0 = 0;       //ÉèÖÃÎª×¼Ë«Ïò¿Ú
+ 181   1              P1M1 = 0;       P1M0 = 0;       //ÉèÖÃÎª×¼Ë«Ïò¿Ú
+ 182   1              P2M1 = 0;       P2M0 = 0;       //ÉèÖÃÎª×¼Ë«Ïò¿Ú
+ 183   1              P3M1 = 0;       P3M0 = 0;       //ÉèÖÃÎª×¼Ë«Ïò¿Ú
+ 184   1              P4M1 = 0;       P4M0 = 0;       //ÉèÖÃÎª×¼Ë«Ïò¿Ú
+ 185   1              P5M1 = 0;       P5M0 = 0;       //ÉèÖÃÎª×¼Ë«Ïò¿Ú
+ 186   1              P6M1 = 0;       P6M0 = 0;       //ÉèÖÃÎª×¼Ë«Ïò¿Ú
+ 187   1              P7M1 = 0;       P7M0 = 0;       //ÉèÖÃÎª×¼Ë«Ïò¿Ú
+ 188   1       
+ 189   1               InitUART();
+ 190   1                      ET0 = 1;        //Timer0 interrupt enable
+ 191   1              TR0 = 1;        //Tiner0 run
+ 192   1              EA = 1;         //´ò¿ª×ÜÖÐ¶Ï
+ 193   1                 i=0;
+ 194   1      while(1) {
+ 195   2      
+ 196   2                 SendOneByte(i);        i++;
+ 197   2               //     delay_ms(100);
+ 198   2                      LED0 = !LED0;
+ 199   2      }
+ 200   1      
+ 201   1      //      UART1_config(2);        // Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: ÎÞÐ§.     
+ 202   1              display_index = 0;
+ 203   1              P1M1 |=   (1<<0);               // °ÑADC¿ÚÉèÖÃÎª¸ß×èÊäÈë
+ 204   1              P1M0 &= ~(1<<0);
+ 205   1              P1ASF = (1<<0);         //P1.0×öADC
+ 206   1              ADC_CONTR = 0xE0;       //90T, ADC power on
+ 207   1              
+ 208   1              AUXR = 0x80;    //Timer0 set as 1T, 16 bits timer auto-reload, 
+ 209   1              TH0 = (u8)(Timer0_Reload / 256);
+ 210   1              TL0 = (u8)(Timer0_Reload % 256);
+ 211   1              ET0 = 1;        //Timer0 interrupt enable
+ 212   1              TR0 = 1;        //Tiner0 run
+ 213   1              EA = 1;         //´ò¿ª×ÜÖÐ¶Ï
+ 214   1      //      TMOD !=  1;
+ 215   1               sec = 0; 
+ 216   1        ll:   TR0 = 1;;
+ 217   1               if ( sec < 10 ) goto ll;
+ 218   1      //      UART1_config(1);
+ 219   1              PrintString1("STC15F2K60S2 UART1 Test Prgramme!\r\n");  //SUART2·¢ËÍÒ»¸ö×Ö·û´®
+ 220   1       
+ 221   1      //      while (1)
+ 222   1      //      {
+ 223   1      //              LED0 = 0;
+ 224   1      //              delay_ms(250);
+ 225   1      //              delay_ms(250);
+ 226   1      //              LED0 = 1;
+ 227   1      //              delay_ms(250);
+ 228   1      //              delay_ms(250);
+ 229   1      //      }
+ 230   1      
+ 231   1              while(1)        {
+ 232   2      
+ 233   2                      if((TX1_Cnt != RX1_Cnt) && (!B_TX1_Busy))       //ÊÕµ½Êý¾Ý, ·¢ËÍ¿ÕÏÐ
+ 234   2                      {
+ 235   3                              SBUF = RX1_Buffer[TX1_Cnt];             //°ÑÊÕµ½µÄÊý¾ÝÔ¶Ñù·µ»Ø
+ 236   3                              B_TX1_Busy = 1;
+ 237   3                              if(++TX1_Cnt >= UART1_BUF_LENGTH)       TX1_Cnt = 0;
+ 238   3                      }
+C51 COMPILER V9.01   MAIN                                                                  07/21/2020 14:50:37 PAGE 5   
+
+ 239   2                               j =100;
+ 240   2                                      str[0] = j / 100 + DIS_DOT;     //ÏÔÊ¾Íâ²¿µçÑ¹Öµ
+ 241   2                                      str[1] = (j % 100) / 10;
+ 242   2                                      str[2] = j % 10;
+ 243   2                                      str[3] = 0xaa;
+ 244   2                                      str[4] = 0x55;
+ 245   2                      //         sbufsendstr(str) ;
+ 246   2      
+ 247   2                              LED0 = !LED0;
+ 248   2                 }
+ 249   1                      if(B_1ms)       //1msµ½
+ 250   1                      {  
+ 251   2                              LED0 = !LED0;
+ 252   2                              B_1ms = 0;
+ 253   2                              if(++msecond >= 300)    //300msµ½
+ 254   2                              {
+ 255   3                                      msecond = 0;
+ 256   3                              #if (Cal_MODE == 0)
+ 257   3                              //=================== Ö»¶Á1´ÎADC, 10bit ADC. ·Ö±æÂÊ0.01V ===============================
+ 258   3                                      P1ASF = 0;
+ 259   3                                      Get_ADC10bitResult(0);  //¸Ä±äP1ASFºóÏÈ¶ÁÒ»´Î²¢¶ªÆú½á¹û, ÈÃÄÚ²¿µÄ²ÉÑùµçÈÝµÄµçÑ¹µÈÓÚÊäÈëÖµ.
+ 260   3                                      Bandgap = Get_ADC10bitResult(0);        //¶ÁÄÚ²¿»ù×¼ADC, P1ASF=0, ¶Á0Í¨µÀ
+ 261   3                                      P1ASF = 1; //  1<<3;
+ 262   3                                      j = Get_ADC10bitResult(3);      //¶ÁÍâ²¿µçÑ¹ADC
+ 263   3                                      j = (u16)((u32)j * 123 / Bandgap);      //¼ÆËãÍâ²¿µçÑ¹, BandgapÎª1.23V, ²âµçÑ¹·Ö±æÂÊ0.01V
+ 264   3                              #endif
+ 265   3                              //==========================================================================
+ 266   3                              //===== Á¬Ðø¶Á16´ÎADC ÔÙÆ½¾ù¼ÆËã. ·Ö±æÂÊ0.01V =========
+ 267   3                              #if (Cal_MODE == 1)
+                                              P1ASF = 0;
+                                              Get_ADC10bitResult(0);  //¸Ä±äP1ASFºóÏÈ¶ÁÒ»´Î²¢¶ªÆú½á¹û, ÈÃÄÚ²¿µÄ²ÉÑùµçÈÝµÄµçÑ¹µÈÓÚÊäÈëÖµ.
+                                              for(j=0, i=0; i<16; i++)
+                                              {
+                                                      j += Get_ADC10bitResult(0);     //¶ÁÄÚ²¿»ù×¼ADC, P1ASF=0, ¶Á0Í¨µÀ
+                                              }
+                                              Bandgap = j >> 4;       //16´ÎÆ½¾ù
+                                              P1ASF = ADC_P10;
+                                              for(j=0, i=0; i<16; i++)
+                                              {
+                                                      j += Get_ADC10bitResult(3);     //¶ÁÍâ²¿µçÑ¹ADC
+                                              }
+                                              j = j >> 4;     //16´ÎÆ½¾ù
+                                              j = (u16)((u32)j * 123 / Bandgap);      //¼ÆËãÍâ²¿µçÑ¹, BandgapÎª1.23V, ²âµçÑ¹·Ö±æÂÊ0.01V
+                                      #endif
+ 283   3                              //==========================================================================
+ 284   3                      
+ 285   3                                      str[0] = j / 100 + DIS_DOT;     //ÏÔÊ¾Íâ²¿µçÑ¹Öµ
+ 286   3                                      str[1] = (j % 100) / 10;
+ 287   3                                      str[2] = j % 10;
+ 288   3                                      str[3] = 0xaa;
+ 289   3                                      str[4] = 0x55;
+ 290   3                                 sbufsendstr(str) ;
+ 291   3      
+ 292   3      //                      j = Bandgap;
+ 293   3      //                              LED8[0] = j / 1000;             //ÏÔÊ¾Bandgap ADCÖµ
+ 294   3      //                              LED8[1] = (j % 1000) / 100;
+ 295   3      //                              LED8[2] = (j % 100) / 10;
+ 296   3      //                              LED8[3] = j % 10;
+ 297   3                      
+ 298   3                              }
+ 299   2                      }
+ 300   1      
+C51 COMPILER V9.01   MAIN                                                                  07/21/2020 14:50:37 PAGE 6   
+
+ 301   1      } 
+ 302          //========================================================================
+ 303          // º¯Êý: u16    Get_ADC10bitResult(u8 channel)
+ 304          // ÃèÊö: ²éÑ¯·¨¶ÁÒ»´ÎADC½á¹û.
+ 305          // ²ÎÊý: channel: Ñ¡ÔñÒª×ª»»µÄADC.
+ 306          // ·µ»Ø: 10Î»ADC½á¹û.
+ 307          // °æ±¾: V1.0, 2012-10-22
+ 308          //========================================================================
+ 309          u16     Get_ADC10bitResult(u8 channel)  //channel = 0~7
+ 310          {
+ 311   1              ADC_RES = 0;
+ 312   1              ADC_RESL = 0;
+ 313   1              ADC_CONTR = (ADC_CONTR & 0xe0) | 0x08 | channel;        //start the ADC
+ 314   1              NOP(4);
+ 315   1              while((ADC_CONTR & 0x10) == 0)  ;       //wait for ADC finish
+ 316   1              ADC_CONTR &= ~0x10;             //Çå³ýADC½áÊø±êÖ¾
+ 317   1              return  (((u16)ADC_RES << 2) | (ADC_RESL & 3));
+ 318   1      }
+ 319          
+ 320          
+ 321          /********************** Timer0 1msÖÐ¶Ïº¯Êý ************************/
+ 322          //void timer0 (void) interrupt TIMER0_VECTOR
+ 323          //{
+ 324          //      DisplayScan();  //1msÉ¨ÃèÏÔÊ¾Ò»Î»
+ 325          //      B_1ms = 1;              //1ms±êÖ¾
+ 326          //}
+ 327          
+ 328          //========================================================================
+ 329          // º¯Êý: void PrintString1(u8 *puts)
+ 330          // ÃèÊö: ´®¿Ú1·¢ËÍ×Ö·û´®º¯Êý¡£
+ 331          // ²ÎÊý: puts:  ×Ö·û´®Ö¸Õë.
+ 332          // ·µ»Ø: none.
+ 333          // °æ±¾: VER1.0
+ 334          // ÈÕÆÚ: 2014-11-28
+ 335          // ±¸×¢: 
+ 336          //========================================================================
+ 337          void PrintString1(u8 *puts)     //·¢ËÍÒ»¸ö×Ö·û´®
+ 338          {
+ 339   1          for (; *puts != 0;  puts++)         //Óöµ½Í£Ö¹·û0½áÊø
+ 340   1              {
+ 341   2                      SBUF = *puts;
+ 342   2                      B_TX1_Busy = 1;
+ 343   2                      while(B_TX1_Busy);
+ 344   2              }
+ 345   1      }
+ 346          
+ 347          //========================================================================
+ 348          // º¯Êý: SetTimer2Baudraye(u16 dat)
+ 349          // ÃèÊö: ÉèÖÃTimer2×ö²¨ÌØÂÊ·¢ÉúÆ÷¡£
+ 350          // ²ÎÊý: dat: Timer2µÄÖØ×°Öµ.
+ 351          // ·µ»Ø: none.
+ 352          // °æ±¾: VER1.0
+ 353          // ÈÕÆÚ: 2014-11-28
+ 354          // ±¸×¢: 
+ 355          //========================================================================
+ 356          void    SetTimer2Baudraye(u16 dat)      // Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: Ê¹ÓÃTimer1×ö²¨ÌØÂÊ.
+ 357          {
+ 358   1              AUXR &= ~(1<<4);        //Timer stop
+ 359   1              AUXR &= ~(1<<3);        //Timer2 set As Timer
+ 360   1              AUXR |=  (1<<2);        //Timer2 set as 1T mode
+ 361   1              TH2 = dat / 256;
+ 362   1              TL2 = dat % 256;
+C51 COMPILER V9.01   MAIN                                                                  07/21/2020 14:50:37 PAGE 7   
+
+ 363   1              IE2  &= ~(1<<2);        //½ûÖ¹ÖÐ¶Ï
+ 364   1              AUXR |=  (1<<4);        //Timer run enable
+ 365   1      }
+ 366          
+ 367          //========================================================================
+ 368          // º¯Êý: void   UART1_config(u8 brt)
+ 369          // ÃèÊö: UART1³õÊ¼»¯º¯Êý¡£
+ 370          // ²ÎÊý: brt: Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: Ê¹ÓÃTimer1×ö²¨ÌØÂÊ.
+ 371          // ·µ»Ø: none.
+ 372          // °æ±¾: VER1.0
+ 373          // ÈÕÆÚ: 2014-11-28
+ 374          // ±¸×¢: 
+ 375          //========================================================================
+ 376          void    UART1_config(u8 brt)    // Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: Ê¹ÓÃTimer1×ö²¨ÌØÂÊ.
+ 377          {
+ 378   1              /*********** ²¨ÌØÂÊÊ¹ÓÃ¶¨Ê±Æ÷2 *****************/
+ 379   1              if(brt == 2)
+ 380   1              {
+ 381   2                      AUXR |= 0x01;           //S1 BRT Use Timer2;
+ 382   2                      SetTimer2Baudraye(65536UL - (MAIN_Fosc / 4) / Baudrate1);
+ 383   2              }
+ 384   1      
+ 385   1              /*********** ²¨ÌØÂÊÊ¹ÓÃ¶¨Ê±Æ÷1 *****************/
+ 386   1              else
+ 387   1              {
+ 388   2                      TR1 = 0;
+ 389   2                      AUXR &= ~0x01;          //S1 BRT Use Timer1;
+ 390   2                      AUXR |=  (1<<6);        //Timer1 set as 1T mode
+ 391   2                      TMOD &= ~(1<<6);        //Timer1 set As Timer
+ 392   2                      TMOD &= ~0x30;          //Timer1_16bitAutoReload;
+ 393   2                      TH1 = (u8)((65536UL - (MAIN_Fosc / 4) / Baudrate1) / 256);
+ 394   2                      TL1 = (u8)((65536UL - (MAIN_Fosc / 4) / Baudrate1) % 256);
+ 395   2                      ET1 = 0;        //½ûÖ¹ÖÐ¶Ï
+ 396   2                      INT_CLKO &= ~0x02;      //²»Êä³öÊ±ÖÓ
+ 397   2                      TR1  = 1;
+ 398   2              }
+ 399   1              /*************************************************/
+ 400   1      
+ 401   1              SCON = (SCON & 0x3f) | 0x40;    //UART1Ä£Ê½, 0x00: Í¬²½ÒÆÎ»Êä³ö, 0x40: 8Î»Êý¾Ý,¿É±ä²¨ÌØÂÊ, 0x80: 9Î»Êý¾Ý,¹Ì¶
+             -¨²¨ÌØÂÊ, 0xc0: 9Î»Êý¾Ý,¿É±ä²¨ÌØÂÊ
+ 402   1              PS  = 1;        //¸ßÓÅÏÈ¼¶ÖÐ¶Ï
+ 403   1              ES  = 1;        //ÔÊÐíÖÐ¶Ï
+ 404   1              REN = 1;        //ÔÊÐí½ÓÊÕ
+ 405   1              P_SW1 &= 0x3f;
+ 406   1              P_SW1 |= 0x00;          //UART1 switch to, 0x00: P3.0 P3.1, 0x40: P3.6 P3.7, 0x80: P1.6 P1.7 (±ØÐëÊ¹ÓÃÄÚ²¿Ê±ÖÓ)
+ 407   1      //      PCON2 |=  (1<<4);       //ÄÚ²¿¶ÌÂ·RXDÓëTXD, ×öÖÐ¼Ì, ENABLE,DISABLE
+ 408   1      
+ 409   1              B_TX1_Busy = 0;
+ 410   1              TX1_Cnt = 0;
+ 411   1              RX1_Cnt = 0;
+ 412   1      }
+ 413          
+ 414          
+ 415          //========================================================================
+ 416          // º¯Êý: void UART1_int (void) interrupt UART1_VECTOR
+ 417          // ÃèÊö: UART1ÖÐ¶Ïº¯Êý¡£
+ 418          // ²ÎÊý: nine.
+ 419          // ·µ»Ø: none.
+ 420          // °æ±¾: VER1.0
+ 421          // ÈÕÆÚ: 2014-11-28
+ 422          // ±¸×¢: 
+ 423          //========================================================================
+C51 COMPILER V9.01   MAIN                                                                  07/21/2020 14:50:37 PAGE 8   
+
+ 424          //void UART1_int (void) interrupt 4
+ 425          //{
+ 426          //      if(RI)
+ 427          //      {
+ 428          //              RI = 0;
+ 429          //              RX1_Buffer[RX1_Cnt] = SBUF;
+ 430          //              if(++RX1_Cnt >= UART1_BUF_LENGTH)       RX1_Cnt = 0;    //·ÀÒç³ö
+ 431          //      }
+ 432          //
+ 433          //      if(TI)
+ 434          //      {
+ 435          //              TI = 0;
+ 436          //              B_TX1_Busy = 0;
+ 437          //      }
+ 438          //}
+ 439          
+ 440          
+ 441          void  delay_ms(u8 ms)
+ 442          {
+ 443   1           u16 i;
+ 444   1               do{
+ 445   2                    i = MAIN_Fosc / 13000;
+ 446   2                        while(--i)    ;   //14T per loop
+ 447   2           }while(--ms);
+ 448   1      }
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  1 ERROR(S)

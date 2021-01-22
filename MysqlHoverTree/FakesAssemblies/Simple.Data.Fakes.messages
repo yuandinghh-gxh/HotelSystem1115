@@ -1,0 +1,251 @@
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ActionDisposable 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.IAdapterFactory 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.AdapterFactory 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.AdapterMethodDynamicInvoker 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.AssemblyEx 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.BinderHelper 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.CachingAdapterFactory 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.CastEnumerable`1 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.CommandFactory 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.ArgumentHelper 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.ICommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.ICreateDelegate 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.IQueryCompatibleCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.GetCountByCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.GetCountCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.ExistsByCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.ExistsCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.QueryCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.ResultHelper 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.UpdateAllCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.DeleteAllCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.FindAllCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.QueryByCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.UpdateCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.UpsertByCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.UpsertCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.CommonTypes 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ConcreteCollectionTypeCreator 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ConcreteObject 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ConcreteTypeCreator 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DataStrategy 生成存根: method Simple.Data.RunStrategy Simple.Data.DataStrategy.get_Run() unstubbable: 方法是抽象的，因此无法用作存根。原因: 方法签名类型对于 exported or assembly(Simple.Data.Fakes) or subtype(DataStrategy in assembly Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Database 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DatabaseOpenerMethods 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.RunStrategy 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DatabaseRunner 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DataStrategyWithOptions 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ErrorCallback 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.FunctionSignature 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ListEx 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.JoinType 生成存根: 类型是一个值类型。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.OfTypeEnumerable`1 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DefaultOptimizingDelegateFactory 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.PropertySetterBuilder 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.ValueResolver 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.AggregateValueResolver 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.DictionaryCreatorFactory 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.DictionaryQueryRunner 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.GenericEqualityComparer`1 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.EnumerableEx 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.ArrayExtensions 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.HomogenizeEx 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.ResultSetExtensions 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.FunctionReference 生成存根: 类型没有系列可见的构造函数。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Future`1 生成存根: 类型没有系列可见的构造函数。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.MathOperator 生成存根: 类型是一个值类型。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Maybe 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.OrderByDirection 生成存根: 类型是一个值类型。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Promise`1 生成存根: 类型没有系列可见的构造函数。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.FunctionHandlers 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.FunctionValueResolver 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.GroupingHandler 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.ObjectMaths 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.ObjectValueResolver 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.OrderByClauseHandler 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.SelectClauseHandler 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.WhereClauseHandler 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Range 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Range`1 生成存根: 类型是一个值类型。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleDataTraceSources 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ColdObservable 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ColdObservable`1 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.MapObservable 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.MapObservable`2 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleReferenceEx 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleResultSet 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.BinderExtensions 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.DictionaryExtensions 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.ObjectEx 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.FunctionReturnType 生成存根: 类型是一个值类型。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.AllCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.FindCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DatabaseOpener 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleRecord 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.DynamicStringExtensions 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DynamicTable 生成存根: 类型没有系列可见的构造函数。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.EnumerableExtensions 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.FindAllByCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.FindByCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.InsertCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.DeleteByCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.MefHelper 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.MethodNameParser 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleExpressionType 生成存根: 类型是一个值类型。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.StringExtensions 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.SimplePluralizer 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleTransaction 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.TransactionRunner 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.TypeExtensions 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.UnresolvableObjectException 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.UpdateByCommand 生成存根: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.WithMode 生成存根: 类型是一个值类型。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.WithType 生成存根: 类型是一个值类型。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 <>f__AnonymousType0`1 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 <>f__AnonymousType1`1 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 <>f__AnonymousType2`1 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 <>f__AnonymousType3`2 生成存根: 类型已密封。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.IAdapterFactory 生成填充码: 类型是一个接口。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.AdapterFactory 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.AdapterMethodDynamicInvoker 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.BinderHelper 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.CachingAdapterFactory 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.CastEnumerable`1 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.CommandFactory 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.ArgumentHelper 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.ICommand 生成填充码: 类型是一个接口。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.ICreateDelegate 生成填充码: 类型是一个接口。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.IQueryCompatibleCommand 生成填充码: 类型是一个接口。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.GetCommand+<>c__DisplayClass5 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.GetCommand+<>c__DisplayClass8 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.GetCommand+<Execute>o__SiteContainer0 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.GetCountByCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.GetCountCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.ExistsByCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.ExistsCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.QueryCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.ResultHelper 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.UpdateAllCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.DeleteAllCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.FindAllCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.QueryByCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.UpdateCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.UpsertByCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.UpsertCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ConcreteCollectionTypeCreator 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ConcreteObject 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ConcreteTypeCreator 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DataStrategy+<>c__DisplayClass1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DataStrategy+<SetMemberAsSchema>o__SiteContainer7 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DataStrategy+<SetMemberAsSchema>o__SiteContainer9 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DataStrategy+<SetMemberAsTable>o__SiteContainer3 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DataStrategy+<SetMemberAsTable>o__SiteContainer5 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DatabaseOpenerMethods 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.RunStrategy 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DatabaseRunner 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DataStrategyWithOptions 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ErrorCallback 生成填充码: 类型是一个委托。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.FunctionSignature 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ListEx 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Adapter+<>c__DisplayClass11 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Adapter+<>c__DisplayClass15 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Adapter+<InsertManyAndReturn>d__0 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Adapter+<RunQueries>d__7 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Adapter+<UpsertMany>d__2f 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Adapter+<UpsertManyWithResults>d__19 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Adapter+<UpsertManyWithResults>d__21 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Adapter+<UpsertManyWithResults>d__28 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.IAdapterWithFunctions 生成填充码: 类型是一个接口。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.IAdapterWithRelation 生成填充码: 类型是一个接口。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.IAdapterWithTransactions 生成填充码: 类型是一个接口。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.InMemoryAdapter+<>c__DisplayClass3a 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.InMemoryAdapter+<>c__DisplayClass3e 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.InMemoryAdapter+<>c__DisplayClass43 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.InMemoryAdapter+<>c__DisplayClass46 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.InMemoryAdapter+<>c__DisplayClass4b 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.InMemoryAdapter+<>c__DisplayClass4e 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.InMemoryAdapter+<>c__DisplayClass55 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.InMemoryAdapter+<>c__DisplayClass58 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.InMemoryAdapter+<>c__DisplayClass5b 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.InMemoryAdapter+FunctionFlags 生成填充码: 类型是一个枚举。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.InMemoryAdapter+FunctionInfo 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.InMemoryAdapter+InMemoryAdapterTransaction 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.InMemoryAdapter+JoinInfo 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.IAdapterTransaction 生成填充码: 类型是一个接口。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.JoinType 生成填充码: 类型是一个枚举。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.OfTypeEnumerable`1 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.OptimizingDelegateFactory+<>c__DisplayClass1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DefaultOptimizingDelegateFactory 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.PropertySetterBuilder 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.ValueResolver 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.AggregateValueResolver 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.DictionaryCreatorFactory 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.DictionaryEqualityComparer+<>c__DisplayClass1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.DictionaryQueryRunner 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.GenericEqualityComparer`1 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.EnumerableEx+<>c__DisplayClass1`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.ArrayExtensions+<>c__DisplayClass1`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.ResultSetExtensions 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.IDatabaseOpener 生成填充码: 类型是一个接口。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.IPluralizer 生成填充码: 类型是一个接口。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.IRange 生成填充码: 类型是一个接口。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.MathOperator 生成填充码: 类型是一个枚举。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Maybe`1+NoneClass 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Maybe`1+SomeClass 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.OrderByDirection 生成填充码: 类型是一个枚举。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.FunctionHandlers 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.FunctionValueResolver 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.GroupingHandler 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.ObjectMaths 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.ObjectValueResolver 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.OrderByClauseHandler 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.SelectClauseHandler 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.QueryPolyfills.WhereClauseHandler 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Range`1+<>c__DisplayClass1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Range`1+<AsEnumerable>d__3 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleExpression+<Yield>d__0 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ColdObservable+<>c__DisplayClass1`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ColdObservable+_EmptyDisposable 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ColdObservable`1 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.MapObservable 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.MapObservable`2 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleQuery+<>c__DisplayClass15 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleQuery+<>c__DisplayClass2 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleQuery+<AsObservable>o__SiteContainer22 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleQuery+<Count>o__SiteContainer1f 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleQuery+<ToScalar>o__SiteContainer1b`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleQuery+<ToScalarOrDefault>o__SiteContainer1d`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleResultSet+<>c__DisplayClass7 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleResultSet+DynamicEnumerator 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DynamicSchema+<GetTable>o__SiteContainer0 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.BinderExtensions 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.DictionaryExtensions 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.ObjectEx+<>c__DisplayClass3 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.ObjectEx+<>c__DisplayClass8 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.FunctionReturnType 生成填充码: 类型是一个枚举。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.AllCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.FindCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.DatabaseOpener 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleRecord+<>c__DisplayClass2 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.ObjectReference+<>c__DisplayClass2 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.EnumerableExtensions+<>c__DisplayClass15`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.EnumerableExtensions+<ExtendInfinite>d__e`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.EnumerableExtensions+<Return>d__17`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.EnumerableExtensions+<SkipLast>d__4`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.EnumerableExtensions+<ToTuplePairs>d__9`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.FindAllByCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.FindByCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.InsertCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.DeleteByCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.MefHelper 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.MethodNameParser 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.SimpleExpressionType 生成填充码: 类型是一个枚举。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Extensions.SimplePluralizer 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.TransactionRunner 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.TypeExtensions+<>c__DisplayClass7 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.Commands.UpdateByCommand 生成填充码: 类型对 exported or assembly(Simple.Data.Fakes) 不可见。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.WithMode 生成填充码: 类型是一个枚举。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 Simple.Data.WithType 生成填充码: 类型是一个枚举。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 <>f__AnonymousType0`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 <>f__AnonymousType1`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 <>f__AnonymousType2`1 生成填充码: 类型不受支持，因为存在内部限制。
+F:\HotelSystem1115\MysqlHoverTree\Fakes\Simple.Data.fakes : warning : 无法为 <>f__AnonymousType3`2 生成填充码: 类型不受支持，因为存在内部限制。

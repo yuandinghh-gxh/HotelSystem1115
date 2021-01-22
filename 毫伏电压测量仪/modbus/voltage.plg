@@ -1,0 +1,126 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\HotelSystem1115\ºÁ·üµçÑ¹²âÁ¿ÒÇ\modbus\voltage.uvproj
+Project File Date:  01/22/2021
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+STC15Fxxxx.H(536): warning C322: unknown identifier
+STC15Fxxxx.H(538): warning C322: unknown identifier
+STC15Fxxxx.H(540): warning C322: unknown identifier
+STC15Fxxxx.H(542): warning C322: unknown identifier
+STC15Fxxxx.H(544): warning C322: unknown identifier
+STC15Fxxxx.H(546): warning C322: unknown identifier
+STC15Fxxxx.H(548): warning C322: unknown identifier
+MAIN.C(180): error C141: syntax error near 'u8'
+MAIN.C(180): error C202: 'ic': undefined identifier
+MAIN.C(180): error C202: 'ic': undefined identifier
+MAIN.C(180): error C202: 'ic': undefined identifier
+MAIN.C(180): error C141: syntax error near ')'
+MAIN.C(334): error C141: syntax error near '01'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+STC15Fxxxx.H(536): warning C322: unknown identifier
+STC15Fxxxx.H(538): warning C322: unknown identifier
+STC15Fxxxx.H(540): warning C322: unknown identifier
+STC15Fxxxx.H(542): warning C322: unknown identifier
+STC15Fxxxx.H(544): warning C322: unknown identifier
+STC15Fxxxx.H(546): warning C322: unknown identifier
+STC15Fxxxx.H(548): warning C322: unknown identifier
+MAIN.C(180): error C141: syntax error near 'u8'
+MAIN.C(180): error C141: syntax error near ')'
+MAIN.C(334): error C141: syntax error near '01'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(180): error C141: syntax error near 'u8'
+MAIN.C(180): error C141: syntax error near ')'
+MAIN.C(334): error C141: syntax error near '01'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(334): error C141: syntax error near '01'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SBUFSENDSTR?MAIN
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _CRC16
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _CRC16
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 03A7H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _CRC16
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0405H
+Program Size: data=64.1 xdata=0 code=1975
+creating hex file from "voltage"...
+"voltage" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(112): error C202: 'ic': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _CRC16
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _CRC16
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 043BH
+Program Size: data=66.1 xdata=0 code=1939
+creating hex file from "voltage"...
+"voltage" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(570): error C141: syntax error near 'const'
+MAIN.C(597): error C141: syntax error near '}'
+MAIN.C(599): error C141: syntax error near 'const'
+MAIN.C(626): error C141: syntax error near '}'
+MAIN.C(628): error C141: syntax error near ''
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(570): error C141: syntax error near 'unsigned'
+MAIN.C(597): error C141: syntax error near '}'
+MAIN.C(599): error C141: syntax error near 'unsigned'
+MAIN.C(626): error C141: syntax error near '}'
+MAIN.C(628): error C141: syntax error near ''
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(570): error C141: syntax error near 'u8'
+MAIN.C(597): error C141: syntax error near '}'
+MAIN.C(599): error C141: syntax error near 'u8'
+MAIN.C(626): error C141: syntax error near '}'
+MAIN.C(628): error C141: syntax error near ''
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(630): error C141: syntax error near ''
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(402): warning C173: missing return-expression
+MAIN.C(402): warning C290: missing return value
+linking...
+Program Size: data=73.1 xdata=0 code=2035
+creating hex file from "voltage"...
+"voltage" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=71.1 xdata=0 code=2031
+creating hex file from "voltage"...
+"voltage" - 0 Error(s), 0 Warning(s).

@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# IDE0043: 无效的格式字符串
+dotnet_diagnostic.IDE0043.severity = error
+
+# IDE1006: 命名样式
+dotnet_diagnostic.IDE1006.severity = none

@@ -1,0 +1,127 @@
+﻿		#region Sql           yuandinghh@hotmail.com
+			#endregion
+		转义字符   \r = 0xD , \n = 0xA
+			 MessageBox.Show( s );    
+				_serialPort.WriteLine( message );
+
+AppInfo.serialPort = new SerialPort {	PortName = AppInfo.COM,	BaudRate = 4800,	Parity = Parity.None,	StopBits = StopBits.One,	DataBits = 8,Handshake = Handshake.None		};
+
+		public static void Read( ) {
+			while (AppInfo.comset) {
+				try {
+					AppInfo.LoginName = AppInfo.serialPort.ReadLine();
+					if (AppInfo.LoginName != "") {
+						whqwin.bytesData = Encoding.Default.GetBytes( AppInfo.LoginName );   // byte[] byteArray  //    bytesData[readbyte]= (Byte) AppInfo.serialPort.ReadByte();  
+						getcomdata = true;
+					}
+				} catch (TimeoutException) { } //  MessageBox.Show("出错:TimeoutException"); }
+				catch (InvalidOperationException ex) {
+					messagebool = true; message = ex.Message;
+				} catch (UnauthorizedAccessException ex) {
+					message = ex.Message; messagebool = true;
+				} catch (Exception ex) {
+					string s = ex.Message + "读串行口出错"; MessageBox.Show( s );
+				}
+				Thread.Sleep( 50 );
+			}
+		}
+
+		//string table = "Id INTEGER     NOT NULL,com    VARCHAR( 8 ),    comset VARCHAR (4),	CONSTRAINT PK_setdata PRIMARY KEY( 	Id	)"; 	//SQLiteDBHelper.NewTable( "comd", table );
+ // AppInfo.serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler); 
+ 
+ //接收一组串行数据  
+        private static void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)        {
+            SerialPort sp = (SerialPort)sender;
+            readbyte = (byte)sp.ReadByte();   //			string indata = sp.ReadExisting();
+            bytesData[readcomc] = readbyte;
+            if (readbyte == 0xa)            {
+                getcomdata = true;
+                    crc = 0; readcomc = 0;
+       //         }                       //iteLine( "Data Received:" );			Console.Write( indata );
+            }
+            else          {
+                readcomc++;
+                if (readcomc >= 100)                  {
+                    getcomdata = true;
+                   
+                    if (crc == readbyte)                   {
+                        crc = 0;
+                    }
+                }
+                crc += readbyte;
+            }
+        }
+
+        2020-12-10
+        C# string类型和byte[]类型相互转换  
+string类型转成byte[]：
+byte[] byteArray = System.Text.Encoding.Default.GetBytes ( str );
+byte[]转成string：
+string str = System.Text.Encoding.Default.GetString ( byteArray );
+
+string类型转成ASCII byte[]：（"01" 转成 byte[] = new byte[]{ 0x30,0x31}）
+byte[] byteArray = System.Text.Encoding.ASCII.GetBytes ( str );
+
+ASCIIbyte[]转成string：
+（byte[] = new byte[]{ 0x30, 0x31} 转成"01"）
+string str = System.Text.Encoding.ASCII.GetString ( byteArray );
+
+byte[]转16进制格式string：
+new byte[]{ 0x30, 0x31}转成"3031":
+publicstaticstring ToHexString ( byte[] bytes ) // 0xae00cf => "AE00CF "
+{string hexString = string.Empty;
+if ( bytes != null )  {                
+    StringBuilder strB = new StringBuilder ();
+    for ( int i = 0; i < bytes.Length; i++ )
+{                    
+
+strB.Append ( bytes[i].ToString ( "X2" ) );                
+}                
+hexString = strB.ToString ();            
+}return hexString;        
+}
+16进制格式string 转byte[]：
+publicstaticbyte[] GetBytes(string hexString, outint discarded)  {            
+discarded = 0;
+string newString = "";
+char c;// remove all none A-F, 0-9, charactersfor (int i=0; i<hexString.Length; i++) {              
+  c = hexString[i];if (IsHexDigit(c))                    
+newString += c;
+else                    
+discarded++;            
+}// if odd number of characters, discard last characterif (newString.Length % 2 != 0){                discarded++;                
+newString = newString.Substring(0, newString.Length-1);            }
+int byteLength = newString.Length / 2;byte[] bytes = newbyte[byteLength];string hex;int j = 0;for (int i=0; i<bytes.Length; i++){               
+ hex = new String(new Char[] {newString[j], newString[j+1]});               
+ bytes[i] = HexToByte(hex);                j = j+2;           
+ }
+return bytes;       
+ }
+
+c#怎么把byte转化成int 
+ 三种方法来进行转换。(1) 在.NET Framework类库的System名字空间中有个叫做BitConverter的类，它是专门用来进行这种转换的。
+主要方法：
+1> GetBytes()方法 可以将大多数的简单类型转化为byte[]；
+2> ToInt()/ToString()等方法 用来将一个byte[]转换成一个基本类型（primitive type）
+注意：BitConverter类的行为取决于硬件架构（代码在该硬件架构上运行）的字节顺序(endianness)。
+如果你将bit保存为可以在许多不同平台上读取的一个文件格式，那么就会出问题。BitConverter有一个公有的IsLittleEndian字段，你可以查看它是如何运行的，但遗憾的是，你并不能改变它。
+(2) 通过手动位移（bit shifting）来进行转换： 
+b = new byte[] {0xfe,0x5a,0x11,0xfa};
+u = (uint)(b[0] | b[1] << 8 |
+   b[2] << 16 | b[3] << 24);
+b[0] = (byte)(u);
+b[1] = (byte)(u >> 8);
+b[2] = (byte)(u >> 16);
+b[3] = (byte)(u >> 24);
+ 
+用这种方法就可以避免字节顺序问题，因为可以完全控制字节的位置。但是比较麻烦
+(3) 如果不介意用不安全的代码——可以通过直接的内存拷贝来实现转换，把一个指向byte array的指针（pointer）转换成一个指向integer类型的指针，然后取它的值(dereference):unsafe
+ {
+   fixed ( byte* pb = b )
+   u = *((uint*)pb);
+}
+ 
+同BitConverter一样，这个方法的运行结果取决于代码在何种硬件上运行。
+如果要进行很多这种转换，比如说在一个循环中，而且想得到最佳性能，那么建议用最后两种方法中的一种。BitConverter有些慢，尽管区别不大。
+
+-

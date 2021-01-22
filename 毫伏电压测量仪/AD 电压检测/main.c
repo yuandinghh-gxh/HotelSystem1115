@@ -1,0 +1,286 @@
+/*¶ÁADC²âÁ¿Íâ²¿µçÑ¹£¬Ê¹ÓÃÄÚ²¿»ù×¼¼ÆËãµçÑ¹.
+ÓÃSTCµÄMCUµÄIO·½Ê½¿ØÖÆ74HC595Çı¶¯8Î»ÊıÂë¹Ü¡£
+ÓÃ»§¿ÉÒÔĞŞ¸ÄºêÀ´Ñ¡ÔñÊ±ÖÓÆµÂÊ.
+ÓÃ»§¿ÉÒÔÔÚ"ÓÃ»§¶¨Òåºê"ÖĞÑ¡Ôñ¹²Òõ»ò¹²Ñô. ÍÆ¼ö¾¡Á¿Ê¹ÓÃ¹²ÒõÊıÂë¹Ü.
+Ê¹ÓÃTimer0µÄ16Î»×Ô¶¯ÖØ×°À´²úÉú1ms½ÚÅÄ,³ÌĞòÔËĞĞÓÚÕâ¸ö½ÚÅÄÏÂ, ÓÃ»§ĞŞ¸ÄMCUÖ÷Ê±ÖÓÆµÂÊÊ±,×Ô¶¯¶¨Ê±ÓÚ1ms.
+ÓÒ±ß4Î»ÊıÂë¹ÜÏÔÊ¾²âÁ¿µÄµçÑ¹ÖµÖµ.
+Íâ²¿µçÑ¹´Ó°åÉÏ²âÎÂµç×èÁ½¶ËÊäÈë, ÊäÈëµçÑ¹0~VDD, ²»Òª³¬¹ıVDD»òµÍÓÚ0V. 
+Êµ¼ÊÏîÄ¿Ê¹ÓÃÇë´®Ò»¸ö1KµÄµç×èµ½ADCÊäÈë¿Ú, ADCÊäÈë¿ÚÔÙ²¢Ò»¸öµçÈİµ½µØ.
+2020-7-22 
+ ******************************************/
+#define	MODE 	1	  //1: ¿ª·¢ÏµÍ³ £¬  0  Ä¿±ê¼ì²âµçÑ¹µ¥Ôª
+#define MAIN_Fosc	11059000L	//	22118400L	//¶¨ÒåÖ÷Ê±ÖÓ
+#include	"STC15Fxxxx.H"	
+ /***********************************************************/
+#define DIS_DOT		0x20
+#define DIS_BLACK	0x10
+#define DIS_		0x11
+#define P1n_pure_input(bitn)		P1M1 |=  (bitn),	P1M0 &= ~(bitn)
+
+#define	LED_TYPE	0x00		//¶¨ÒåLEDÀàĞÍ, 0x00--¹²Òõ, 0xff--¹²Ñô
+#define	Timer0_Reload	(65536UL -(MAIN_Fosc / 1000))		//Timer 0 ÖĞ¶ÏÆµÂÊ, 1000´Î/Ãë
+		#if ( MODE == 1)
+#define	 LED0 	P46			 //LED10
+#define	 LED1	P47 		  //LED9
+		#else
+#define	 LED0    P10
+#define	 LED1	 P11
+#define	 AD3	 P13
+		#endif
+ #define	 AD3	 P13
+//u8	TX1_Cnt;		//·¢ËÍ¼ÆÊı	 //u8	RX1_Cnt;		//½ÓÊÕ¼ÆÊı
+bit	B_TX1_Busy;			//·¢ËÍÃ¦±êÖ¾
+#define	 Baudrate1	9600L   //#define		UART1_BUF_LENGTH	32
+void   UART1_config(u8 brt);	// Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: Ê¹ÓÃTimer1×ö²¨ÌØÂÊ.
+void   DisplayScan(void);
+/*************	±¾µØ³£Á¿ÉùÃ÷	**************/
+#if ( MODE == 1)
+u8 code t_display[]={						//±ê×¼×Ö¿â
+//	 0    1    2    3    4    5    6    7    8    9    A    B    C    D    E    F
+	0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F,0x77,0x7C,0x39,0x5E,0x79,0x71,
+//black	 -     H    J	 K	  L	   N	o   P	 U     t    G    Q    r   M    y
+	0x00,0x40,0x76,0x1E,0x70,0x38,0x37,0x5C,0x73,0x3E,0x78,0x3d,0x67,0x50,0x37,0x6e,
+	0xBF,0x86,0xDB,0xCF,0xE6,0xED,0xFD,0x87,0xFF,0xEF,0x46};	//0. 1. 2. 3. 4. 5. 6. 7. 8. 9. -1
+u8 code T_COM[]={0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};		//Î»Âë
+		#endif
+/*************	IO¿Ú¶¨Òå	**************/
+sbit	P_HC595_SER   = P4^0;	//pin 14	SER		data input
+sbit	P_HC595_RCLK  = P5^4;	//pin 12	RCLk	store (latch) clock
+sbit	P_HC595_SRCLK = P4^3;	//pin 11	SRCLK	Shift data clock
+/*************	±¾µØ±äÁ¿ÉùÃ÷	**************/
+static  idata u8 	LED8[8];		//ÏÔÊ¾»º³å
+u8	display_index;	//ÏÔÊ¾Î»Ë÷Òı
+u16	msecond,Bandgap;	//
+u16	Get_ADC10bitResult(u8 channel);	//channel = 0~7
+static u8 getsubf = 0,voltage;  //¼ìÑé³ö´í
+static u8 sec,sbufc,sbufb[8],crc,subfmin,beginget;  //  ms ÀÛ¼Ó,  sbufc,ÒÑ¾­½ÓÊÜ´®ĞĞ×Ö·ûÊı ,sbufb ½ÓÊÕ»º´æ
+static u16   curv,ini,min=0;		//µ±Ç°µçÑ¹Öµ
+static u8  datas[6]	; 			//×ª×Ö·û´®  »º´æ
+u8 loop=0; // ÏÔÊ¾ºÍpc»úÏàÁ¬´ÎÊı
+/********************** Timer0 1msÖĞ¶Ïº¯Êı ************************/
+void timer0 (void) interrupt TIMER0_VECTOR	 {
+#if ( MODE == 1)
+	DisplayScan();	//1msÉ¨ÃèÏÔÊ¾Ò»Î»
+ #endif
+   	min++; 	 ini++;	 msecond++;
+    if(ini >= 1000)  {
+		subfmin++;
+		sec++ ;		  //Ãë
+        ini=0; 	  LED1 = !LED1;
+		if (sec >=60 ) { //	deltimesand++;   //Ò»·ÖÖÓ
+			sec = 0; 		 //·¢ËÍÊ±¼ä Ò»·ÖÖÓ
+		}
+     }
+}
+//--------RS232 ´®ĞĞ¿ÚÖĞ¶Ï-----------------------------------
+void Usart() interrupt 4	  {
+	sbufb[sbufc] = SBUF;   	 
+	if ( SBUF == 0xA )  {  
+		getsubf=1;   //		sbufc = 1;     //crc = 0xAA;
+	 }
+    sbufc++; 	RI = 0;//Çå³ı½ÓÊÕÖĞ¶Ï±êÖ¾»
+}
+void sbufsend(u8 c) {	 //´®ĞĞ¿Ú·¢ËÍÒ»¸ö×Ö·û
+u8 i;
+	SBUF=c;				//½«½ÓÊÕµ½µÄÊı¾İ·ÅÈëµ½·¢ËÍ¼Ä´æÆ÷
+	while(!TI);						 //µÈ´ı·¢ËÍÊı¾İÍê³É
+	TI=0; 
+ 	for(i=0; i<50; i++) NOP(1);
+}
+void sbufsendstr() {  //·¢ËÍ×Ö·û´®
+	u8 i;
+   	for(i=0;i<5;i++) {
+		if( str[i] != 0xa ) { 
+			 sbufsend(str[i]); 
+	   	 } else {
+			 sbufsend(0xa);  
+			 goto ret;
+		 }
+	}
+ ret: NOP(1);
+ }
+
+void main(void)		 {
+	u8	i,t;	u16	j;
+ 	P0M1 = 0;	P0M0 = 0;	//ÉèÖÃÎª×¼Ë«Ïò¿Ú
+	P1M1 = 0;	P1M0 = 0;	P2M1 = 0;	P2M0 = 0;	P3M1 = 0;	P3M0 = 0;		P4M1 = 0;	P4M0 = 0;
+	display_index = 0;	 	P1M1 |= 1;  // (1<<3);		// °ÑADC¿ÚÉèÖÃÎª¸ß×èÊäÈë
+	P1M0 &= ~ 1 ; //  (1<<3);		//	P1ASF = (1<<0);		//P1.3×öADC
+	ADC_CONTR = 0xE0;	//90T, ADC power on
+	AUXR = 0x80;	//Timer0 set as 1T, 16 bits timer auto-reload, 
+	TH0 = (u8)(Timer0_Reload / 256); 	TL0 = (u8)(Timer0_Reload % 256);
+ 	ET0 = 1;	TR0 = 1;	//Timer0 interrupt enable  	//Tiner0 run
+	EA = 1;		//´ò¿ª×ÜÖĞ¶Ï
+	PS = 1; //´®ĞĞ¿Ú ÖĞ¶ÏÓÅÏÈ¼¶
+	msecond	=0 ;   //300MS Æô¶¯ad ×ª»»
+    ES = 1;	  getsubf=0;		min=0;	 sbufb[0] =0;	t=0;
+//	timei = 0;  //60Ã¿ ÁùÊ®·ÖÖÓ ÉÏ´«Ò»´Î	 µçÁ¿Ö¸Ê¾
+   	UART1_config(1);	// Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: Ê¹ÓÃTimer1×ö²¨ÌØÂÊ.
+	for(i=0; i<8; i++)	LED8[i] = 0x10;	//ÉÏµçÏûÒş
+//	 while(1) {
+//	 	if ( getsubf== 1) {
+//			  if ( sbufb[0] == 'P' ) {
+//		  		datas[0]='V';  	datas[1]=0xa;  sbufsendstr(datas);
+//		  		getsubf =0;	 sbufc=0;
+//				goto ll;
+//			  }
+//		}
+//	 } 
+ 	while(1)   	{
+			WDT_CONTR = 0xB6 ;	// 10110110   ¿´ÃÅ¹· Çı¶¯ ·ÖÆµ
+ 			if(msecond >= 3000) {	//300msµ½	 			//	DisplayScan();
+ 				msecond = 0;   LED0 = !LED0;	//Ñ­»·¹¤×÷ Ö¸Ê¾µÆ
+			  }
+ 			//===== Á¬Ğø¶Á16´ÎADC ÔÙÆ½¾ù¼ÆËã. ·Ö±æÂÊ0.01V =========
+//				P1ASF = 0;
+//				Get_ADC10bitResult(AD3);	//¸Ä±äP1ASFºóÏÈ¶ÁÒ»´Î²¢¶ªÆú½á¹û, ÈÃÄÚ²¿µÄ²ÉÑùµçÈİµÄµçÑ¹µÈÓÚÊäÈëÖµ.
+//				for(j=0, i=0; i<16; i++) 	{
+//					j += Get_ADC10bitResult(AD3);	//¶ÁÄÚ²¿»ù×¼ADC, P1ASF=0, ¶Á0Í¨µÀ
+//				}
+//				Bandgap = j >> 4;	//16´ÎÆ½¾ù
+//				P1ASF = 1 ;  //ADC_P13;
+//				for(j=0, i=0; i<16; i++) 	{
+//					j += Get_ADC10bitResult(AD3);	//¶ÁÍâ²¿µçÑ¹ADC	  p1.0 
+//				}
+//				j = j >> 4;	//16´ÎÆ½¾ù
+//				j = (u16)((u32)j * 123 / Bandgap);	//¼ÆËãÍâ²¿µçÑ¹, BandgapÎª1.23V, ²âµçÑ¹·Ö±æÂÊ0.01V
+			//==========================================================================
+#if ( MODE == 1)
+//				LED8[5] = j / 100 + DIS_DOT;	//ÏÔÊ¾Íâ²¿µçÑ¹Öµ
+//				LED8[6] = (j % 100) / 10;
+//				LED8[7] = j % 10;
+ #endif
+ //	 datas[0] = 0xfe; datas[1]=j/1000;  datas[2] =(j % 1000) / 100;	 datas[3]=(j % 100) / 10; datas[4] = j % 10; 
+//	j = sec ;  // Ãë Bandgap; 	LED8[0] = j / 1000;		//ÏÔÊ¾Bandgap ADCÖµ
+//		LED8[1] = (j % 1000) / 100;	//		LED8[2] = (j % 100) / 10; //LED8[3] = j % 10;
+//			}	  //msecond >= 3000)
+
+		     if (j > 470)  { voltage = 100; goto tli;}
+			 if (j > 450) { voltage = 80; goto tli;}
+		 	 if (j > 440) {voltage= 60; goto tli;}
+		 	 if (j > 400) { voltage= 40; goto tli;}
+			 if (j > 300) { voltage= 20;  goto tli; }
+			 if (j > 200) voltage= 0;
+tli:	 curv = voltage;
+// 		if ( timei == 0 ) {	     //Èç¹û == 0 ²âÊÔ Êä³ö
+// 			 if (subfmin > 30 ) {  //²âÊÔ 30Ãë·¢Ò»×é ¼ì²âÊı¾İ
+//			//	 sendv() ;		 subfmin =0;
+//			 }
+//		} 
+   	 	if ( getsubf == 1) {	//±£³ÖÍ¨ĞÅ
+			  if ( sbufb[0] == 'P' ) {
+		  		datas[0]='V';  datas[1]='V'; datas[2]=0xd; datas[3]=0xa;  sbufsendstr(datas);
+				loop++; if (loop > 15) loop=0;
+				LED8[0] = loop;			//t_display[loop];
+				LED8[6] = (loop % 100) / 10;
+				LED8[7] = loop % 10;
+		  	   }
+			  if ( sbufb[0] == 'A' ) {
+			  	LED8[2] = t; datas[0]='A';  datas[1]=0xd; datas[2]=0xa;  sbufsendstr(datas);
+				t++; if  (t>15) t=0;
+			  }
+			  getsubf =0;	 sbufc=0;
+		}
+
+
+	}  //while(1)
+} 
+
+//========================================================================
+// º¯Êı: u16	Get_ADC10bitResult(u8 channel)
+// ÃèÊö: ²éÑ¯·¨¶ÁÒ»´ÎADC½á¹û.
+// ²ÎÊı: channel: Ñ¡ÔñÒª×ª»»µÄADC.
+// ·µ»Ø: 10Î»ADC½á¹û.
+// °æ±¾: V1.0, 2012-10-22
+//========================================================================
+u16	Get_ADC10bitResult(u8 channel)	//channel = 0~7
+{
+	ADC_RES = 0;
+	ADC_RESL = 0;
+	ADC_CONTR = (ADC_CONTR & 0xe0) | 0x08 | channel; 	//start the ADC
+	NOP(4);
+ 	while((ADC_CONTR & 0x10) == 0)	;	//wait for ADC finish
+	ADC_CONTR &= ~0x10;		//Çå³ıADC½áÊø±êÖ¾
+	return	(((u16)ADC_RES << 2) | (ADC_RESL & 3));
+}
+
+/**************** ÏòHC595·¢ËÍÒ»¸ö×Ö½Úº¯Êı ******************/
+ void Send_595(u8 dat)	  {		
+	u8	i;
+	for(i=0; i<8; i++)
+	{
+		dat <<= 1;
+		P_HC595_SER   = CY;
+		P_HC595_SRCLK = 1;
+		P_HC595_SRCLK = 0;
+	}
+}
+	
+/********************** ÏÔÊ¾É¨Ãèº¯Êı ************************/
+	#if ( MODE == 1)
+void DisplayScan(void)  {	
+	Send_595(~LED_TYPE ^ T_COM[display_index]);				//Êä³öÎ»Âë
+	Send_595( LED_TYPE ^ t_display[LED8[display_index]]);	//Êä³ö¶ÎÂë
+
+	P_HC595_RCLK = 1;
+	P_HC595_RCLK = 0;							//Ëø´æÊä³öÊı¾İ
+	if(++display_index >= 8)	display_index = 0;	//8Î»½áÊø»Ø0
+}
+#else
+void DisplayScan(void){
+ NOP(1);
+ }
+
+#endif
+
+//========================================================================
+// º¯Êı: SetTimer2Baudraye(u16 dat)
+// ÃèÊö: ÉèÖÃTimer2×ö²¨ÌØÂÊ·¢ÉúÆ÷¡£
+// ²ÎÊı: dat: Timer2µÄÖØ×°Öµ.
+//========================================================================
+void	SetTimer2Baudraye(u16 dat)	// Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: Ê¹ÓÃTimer1×ö²¨ÌØÂÊ.
+{
+	AUXR &= ~(1<<4);	//Timer stop
+	AUXR &= ~(1<<3);	//Timer2 set As Timer
+	AUXR |=  (1<<2);	//Timer2 set as 1T mode
+	TH2 = dat / 256;
+	TL2 = dat % 256;
+	IE2  &= ~(1<<2);	//½ûÖ¹ÖĞ¶Ï
+	AUXR |=  (1<<4);	//Timer run enable
+}
+
+//========================================================================
+// º¯Êı: void	UART1_config(u8 brt)
+// ÃèÊö: UART1³õÊ¼»¯º¯Êı¡£
+// ²ÎÊı: brt: Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: Ê¹ÓÃTimer1×ö²¨ÌØÂÊ.
+//========================================================================
+void	UART1_config(u8 brt) {	// Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: Ê¹ÓÃTimer1×ö²¨ÌØÂÊ.
+	if(brt == 2)		 	/*********** ²¨ÌØÂÊÊ¹ÓÃ¶¨Ê±Æ÷2 *****************/
+	{
+		AUXR |= 0x01;		//S1 BRT Use Timer2;
+		SetTimer2Baudraye(65536UL - (MAIN_Fosc / 4) / Baudrate1);
+	}	 	/*********** ²¨ÌØÂÊÊ¹ÓÃ¶¨Ê±Æ÷1 *****************/
+	else	{
+		TR1 = 0;
+		AUXR &= ~0x01;		//S1 BRT Use Timer1;
+		AUXR |=  (1<<6);	//Timer1 set as 1T mode
+		TMOD &= ~(1<<6);	//Timer1 set As Timer
+		TMOD &= ~0x30;		//Timer1_16bitAutoReload;
+		TH1 = (u8)((65536UL - (MAIN_Fosc / 4) / Baudrate1) / 256);
+		TL1 = (u8)((65536UL - (MAIN_Fosc / 4) / Baudrate1) % 256);
+		ET1 = 0;	//½ûÖ¹ÖĞ¶Ï
+		INT_CLKO &= ~0x02;	//²»Êä³öÊ±ÖÓ
+		TR1  = 1;
+	}
+	/*************************************************/
+  	SCON = (SCON & 0x3f) | 0x40;	//UART1Ä£Ê½, 0x00: Í¬²½ÒÆÎ»Êä³ö, 0x40: 8Î»Êı¾İ,¿É±ä²¨ÌØÂÊ, 0x80: 9Î»Êı¾İ,¹Ì¶¨²¨ÌØÂÊ, 0xc0: 9Î»Êı¾İ,¿É±ä²¨ÌØÂÊ
+	PS  = 1;	//¸ßÓÅÏÈ¼¶ÖĞ¶Ï
+	ES  = 1;	//ÔÊĞíÖĞ¶Ï
+	REN = 1;	//ÔÊĞí½ÓÊÕ
+	P_SW1 &= 0x3f;
+	P_SW1 |= 0x00;		//UART1 switch to, 0x00: P3.0 P3.1, 0x40: P3.6 P3.7, 0x80: P1.6 P1.7 (±ØĞëÊ¹ÓÃÄÚ²¿Ê±ÖÓ)
+//	PCON2 |=  (1<<4);	//ÄÚ²¿¶ÌÂ·RXDÓëTXD, ×öÖĞ¼Ì, ENABLE,DISABLE
+	B_TX1_Busy = 0;		//	TX1_Cnt = 0;  	RX1_Cnt = 0;
+}
+
+

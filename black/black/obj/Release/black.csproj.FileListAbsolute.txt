@@ -1,0 +1,9 @@
+F:\Documents\Visual Studio 2015\Projects\black\black\bin\Release\black.exe.config
+F:\Documents\Visual Studio 2015\Projects\black\black\bin\Release\black.exe
+F:\Documents\Visual Studio 2015\Projects\black\black\bin\Release\black.pdb
+F:\Documents\Visual Studio 2015\Projects\black\black\obj\Release\black.csprojResolveAssemblyReference.cache
+F:\Documents\Visual Studio 2015\Projects\black\black\obj\Release\black.Form1.resources
+F:\Documents\Visual Studio 2015\Projects\black\black\obj\Release\black.Properties.Resources.resources
+F:\Documents\Visual Studio 2015\Projects\black\black\obj\Release\black.csproj.GenerateResource.Cache
+F:\Documents\Visual Studio 2015\Projects\black\black\obj\Release\black.exe
+F:\Documents\Visual Studio 2015\Projects\black\black\obj\Release\black.pdb

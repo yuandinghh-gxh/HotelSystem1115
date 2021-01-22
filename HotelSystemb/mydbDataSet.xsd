@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="mydbDataSet" targetNamespace="http://tempuri.org/mydbDataSet.xsd" xmlns:mstns="http://tempuri.org/mydbDataSet.xsd" xmlns="http://tempuri.org/mydbDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="mydbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="mydbConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MysqlHoverTree.Properties.Settings.GlobalReference.Default.mydbConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="datalistTableAdapter" GeneratorDataComponentClassName="datalistTableAdapter" Name="datalist" UserDataComponentName="datalistTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="mydbConnectionString (Settings)" DbObjectName="mydb.datalist" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `dataid`, `dataname`, `title`, `datahttp`, `text`, `datatime` FROM `datalist`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="opiTableAdapter" GeneratorDataComponentClassName="opiTableAdapter" Name="opi" UserDataComponentName="opiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="mydbConnectionString (Settings)" DbObjectName="mydb.opi" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `opiid`, `username`, `theme`, `email`, `datestr` FROM `opi`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="papercutsTableAdapter" GeneratorDataComponentClassName="papercutsTableAdapter" Name="papercuts" UserDataComponentName="papercutsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="mydbConnectionString (Settings)" DbObjectName="mydb.papercuts" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `paperid`, `filename`, `name`, `subheading`, `type`, `textup`, `disp`, `datetime` FROM `papercuts`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="picTableAdapter" GeneratorDataComponentClassName="picTableAdapter" Name="pic" UserDataComponentName="picTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="mydbConnectionString (Settings)" DbObjectName="mydb.pic" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `id`, `picname`, `type`, `user`, `col`, `text`, `datetime` FROM `pic`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="recordTableAdapter" GeneratorDataComponentClassName="recordTableAdapter" Name="record" UserDataComponentName="recordTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="mydbConnectionString (Settings)" DbObjectName="mydb.record" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idrec`, `user`, `ip`, `datetime` FROM `record`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="userinfoTableAdapter" GeneratorDataComponentClassName="userinfoTableAdapter" Name="userinfo" UserDataComponentName="userinfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="mydbConnectionString (Settings)" DbObjectName="mydb.userinfo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `id`, `username`, `pswd`, `realname`, `nickname`, `useremail`, `sex`, `control`, `phone`, `datestr`, `datee` FROM `userinfo`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="videoTableAdapter" GeneratorDataComponentClassName="videoTableAdapter" Name="video" UserDataComponentName="videoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="mydbConnectionString (Settings)" DbObjectName="mydb.video" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `videoid`, `filename`, `vname`, `count`, `namejep`, `datetime` FROM `video`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="mydbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="mydbDataSet" msprop:Generator_UserDSName="mydbDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="datalist" msprop:Generator_TableClassName="datalistDataTable" msprop:Generator_TableVarName="tabledatalist" msprop:Generator_TablePropName="datalist" msprop:Generator_RowDeletingName="datalistRowDeleting" msprop:Generator_RowChangingName="datalistRowChanging" msprop:Generator_RowEvHandlerName="datalistRowChangeEventHandler" msprop:Generator_RowDeletedName="datalistRowDeleted" msprop:Generator_UserTableName="datalist" msprop:Generator_RowChangedName="datalistRowChanged" msprop:Generator_RowEvArgName="datalistRowChangeEvent" msprop:Generator_RowClassName="datalistRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="opi" msprop:Generator_TableClassName="opiDataTable" msprop:Generator_TableVarName="tableopi" msprop:Generator_TablePropName="opi" msprop:Generator_RowDeletingName="opiRowDeleting" msprop:Generator_RowChangingName="opiRowChanging" msprop:Generator_RowEvHandlerName="opiRowChangeEventHandler" msprop:Generator_RowDeletedName="opiRowDeleted" msprop:Generator_UserTableName="opi" msprop:Generator_RowChangedName="opiRowChanged" msprop:Generator_RowEvArgName="opiRowChangeEvent" msprop:Generator_RowClassName="opiRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="papercuts" msprop:Generator_TableClassName="papercutsDataTable" msprop:Generator_TableVarName="tablepapercuts" msprop:Generator_TablePropName="papercuts" msprop:Generator_RowDeletingName="papercutsRowDeleting" msprop:Generator_RowChangingName="papercutsRowChanging" msprop:Generator_RowEvHandlerName="papercutsRowChangeEventHandler" msprop:Generator_RowDeletedName="papercutsRowDeleted" msprop:Generator_UserTableName="papercuts" msprop:Generator_RowChangedName="papercutsRowChanged" msprop:Generator_RowEvArgName="papercutsRowChangeEvent" msprop:Generator_RowClassName="papercutsRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="pic" msprop:Generator_TableClassName="picDataTable" msprop:Generator_TableVarName="tablepic" msprop:Generator_TablePropName="pic" msprop:Generator_RowDeletingName="picRowDeleting" msprop:Generator_RowChangingName="picRowChanging" msprop:Generator_RowEvHandlerName="picRowChangeEventHandler" msprop:Generator_RowDeletedName="picRowDeleted" msprop:Generator_UserTableName="pic" msprop:Generator_RowChangedName="picRowChanged" msprop:Generator_RowEvArgName="picRowChangeEvent" msprop:Generator_RowClassName="picRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="record" msprop:Generator_TableClassName="recordDataTable" msprop:Generator_TableVarName="tablerecord" msprop:Generator_TablePropName="record" msprop:Generator_RowDeletingName="recordRowDeleting" msprop:Generator_RowChangingName="recordRowChanging" msprop:Generator_RowEvHandlerName="recordRowChangeEventHandler" msprop:Generator_RowDeletedName="recordRowDeleted" msprop:Generator_UserTableName="record" msprop:Generator_RowChangedName="recordRowChanged" msprop:Generator_RowEvArgName="recordRowChangeEvent" msprop:Generator_RowClassName="recordRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="userinfo" msprop:Generator_TableClassName="userinfoDataTable" msprop:Generator_TableVarName="tableuserinfo" msprop:Generator_TablePropName="userinfo" msprop:Generator_RowDeletingName="userinfoRowDeleting" msprop:Generator_RowChangingName="userinfoRowChanging" msprop:Generator_RowEvHandlerName="userinfoRowChangeEventHandler" msprop:Generator_RowDeletedName="userinfoRowDeleted" msprop:Generator_UserTableName="userinfo" msprop:Generator_RowChangedName="userinfoRowChanged" msprop:Generator_RowEvArgName="userinfoRowChangeEvent" msprop:Generator_RowClassName="userinfoRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="video" msprop:Generator_TableClassName="videoDataTable" msprop:Generator_TableVarName="tablevideo" msprop:Generator_TablePropName="video" msprop:Generator_RowDeletingName="videoRowDeleting" msprop:Generator_RowChangingName="videoRowChanging" msprop:Generator_RowEvHandlerName="videoRowChangeEventHandler" msprop:Generator_RowDeletedName="videoRowDeleted" msprop:Generator_UserTableName="video" msprop:Generator_RowChangedName="videoRowChanged" msprop:Generator_RowEvArgName="videoRowChangeEvent" msprop:Generator_RowClassName="videoRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

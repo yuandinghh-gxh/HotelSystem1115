@@ -1,0 +1,14 @@
+﻿到 2020-1-28 -----------数据库  data    表：
+	 comparison:  对应表  tempnum  温度检测点编号   cabinetnum   对应机柜编号。
+	 detection:   机柜  检测的温度表。
+	 parameters:  监控参数设置表   lowtem,    uptemp,   nodecount,    frontstr,    rearst,     timeopen,    startnum,    samplingcyc,    power,     controlnum,   controltemp,   comset
+  FROM parameters;
+	  Users  用户表。  SELECT UserName,        LoginName,       PassWord,       AdminId,       CreationDate   FROM Users;
+	  SystemLog  系统记录表： SELECT SystemLogId,       HandleTime,       operator,       Abstract,       opertorContent,       CreationDate   FROM SystemLog;
+
+	         string s = string.Format( "{0}在{1}登陆本系统", AppInfo.UserName, DateTime.Now.ToString( "yyyy-MM-dd HH:mm:ss" ) );
+            string sql = string.Format( "insert into SystemLog values ('{0}','{1}','登陆系统','{2}','{3}')", DateTime.Now.ToString( "yyyy-MM-dd HH:mm:ss" ), AppInfo.UserName, s, DateTime.Now.ToString( "yyyy-MM-dd HH:mm:ss" ) );
+            SQLiteDBHelper.ExecQuery( sql );            Close();
+            
+            
+            sql = string.Format( "insert into comparison (  tempnum,  cabinetnum ) values(' ','{0}'   ) ", cabinetnumstr );  SQLiteDBHelper.ExecQuery( sql );

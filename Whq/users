@@ -1,0 +1,65 @@
+[UserId] [int] IDENTITY(1,1) NOT NULL,
+	[UserName] [nvarchar](50) NULL,
+	[LoginName] [nvarchar](50) NOT NULL,
+	[PassWord] [nvarchar](50) NULL,
+	[IfPwd] [nvarchar](2) NULL,
+	[AdminId] [int] NULL,
+	[State] [nvarchar](50) NULL,
+	[XH] [nchar](2) NULL,
+	[LastEditDate] [datetime] NULL,
+	[CreationDate] [datetime] NULL, 
+	
+21232f297a57a5a743894a0e4a801fc3
+
+Server[@Name='YD\LOCALDB#A3402B08']/Database[@Name='data']/Table[@Name='Users' and @Schema='dbo']
+
+UPDATE  TOP (200) Users
+SET       UserName ="admin", LoginName ="admin",
+ PassWord =  "21232f297a57a5a743894a0e4a801fc3", AdminId ="1", LastEditDate =, CreationDate = 
+ 
+ System.ArgumentOutOfRangeException
+  HResult=0x80131502
+  Message=InvalidArgument=“0”的值对于“index”无效。
+Arg_ParamName_Name
+  Source=System.Windows.Forms
+  StackTrace:
+   at System.Windows.Forms.ListView.SelectedListViewItemCollection.get_Item(Int32 index)
+   at Whq.Set.buttonX3_Click(Object sender, EventArgs e) in F:\C++C#\HotelSystem1115\Whq\Set.cs:line 170
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at DevComponents.DotNetBar.ButtonX.OnClick(EventArgs e)
+   at DevComponents.DotNetBar.ButtonX.OnMouseUp(MouseEventArgs e)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at DevComponents.DotNetBar.PopupItemControl.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   at Whq.main1.buttonX4_Click(Object sender, EventArgs e) in F:\C++C#\HotelSystem1115\Whq\main1.cs:line 39
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at DevComponents.DotNetBar.ButtonX.OnClick(EventArgs e)
+   at DevComponents.DotNetBar.ButtonX.OnMouseUp(MouseEventArgs e)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at DevComponents.DotNetBar.PopupItemControl.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Whq.Program.Main() in F:\C++C#\HotelSystem1115\Whq\Program.cs:line 15
+
+  此异常最初是在此调用堆栈中引发的:
+	System.Windows.Forms.ListView.SelectedListViewItemCollection.this[int].get(int)
+    Whq.Set.buttonX3_Click(object, System.EventArgs) (位于 Set.cs 中)
+	System.Windows.Forms.Control.OnClick(System.EventArgs)
+	DevComponents.DotNetBar.ButtonX.OnClick(System.EventArgs)
+	DevComponents.DotNetBar.ButtonX.OnMouseUp(System.Windows.Forms.MouseEventArgs)
+	System.Windows.Forms.Control.WmMouseUp(ref System.Windows.Forms.Message, System.Windows.Forms.MouseButtons, int)
+	System.Windows.Forms.Control.WndProc(ref System.Windows.Forms.Message)
+	DevComponents.DotNetBar.PopupItemControl.WndProc(ref System.Windows.Forms.Message)
+	System.Windows.Forms.NativeWindow.DebuggableCallback(System.IntPtr, int, System.IntPtr, System.IntPtr)
+    ...
+    [调用堆栈已截断]
